@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Plant2Pack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6fbf6;
+      --accent:#2f855a;
+      --accent-2:#276749;
+      --card:#ffffff;
+      --muted:#6b7280;
+      font-family: Inter, system-ui, sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,#eefaf0 0%,#f6fbf6 100%);
+    }
+    .login-card{
+      background:var(--card);
+      padding:28px;
+      border-radius:16px;
+      box-shadow:0 8px 30px rgba(16,24,40,0.04);
+      width:100%;
+      max-width:360px;
+    }
+    h2{margin-bottom:14px;color:var(--accent-2);text-align:center}
+    label{display:block;font-size:13px;color:var(--muted);margin-top:12px;font-weight:600}
+    input{
+      width:100%;
+      padding:10px 12px;
+      border:1px solid #e6edf0;
+      border-radius:10px;
+      margin-top:4px;
+    }
+    button{
+      margin-top:18px;
+      width:100%;
+      padding:12px;
+      background:var(--accent);
+      color:white;
+      border:none;
+      border-radius:10px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    button:hover{background:var(--accent-2)}
+    .back-link{
+      display:block;
+      text-align:center;
+      margin-top:12px;
+      font-size:13px;
+    }
+    .back-link a{
+      color:var(--accent-2);
+      text-decoration:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h2>Login</h2>
+    <form>
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="••••••••" required>
+
+      <button type="submit">Sign In</button>
+    </form>
+    <div class="back-link">
+      <a href="index.html">← Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

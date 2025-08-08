@@ -1,0 +1,331 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plant2Pack — Eco-friendly Packaging Finder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6fbf6;
+      --accent:#2f855a; /* green */
+      --accent-2:#276749;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --glass: rgba(255,255,255,0.6);
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, Roboto, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#eefaf0 0%,#f6fbf6 100%);color:#0f172a}/* Header */
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:transparent}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--accent-2)}
+.logo svg{width:36px;height:36px}
+nav{display:flex;gap:18px}
+nav a{color:var(--muted);text-decoration:none;font-weight:600}
+nav a:hover{color:var(--accent-2)}
+
+/* Main layout */
+.container{max-width:1100px;margin:28px auto;padding:22px}
+.hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start}
+.hero-card{background:linear-gradient(180deg,rgba(47,133,90,0.06),rgba(39,103,73,0.02));padding:28px;border-radius:16px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;background:var(--card);border-radius:999px;font-weight:600;color:var(--accent);box-shadow:0 4px 18px rgba(46,128,89,0.06)}
+h1{margin:14px 0 8px;font-size:28px}
+p.lead{margin:0;color:var(--muted)}
+
+.cta{margin-top:18px;display:flex;gap:12px}
+.btn{padding:12px 16px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+.btn-primary{background:var(--accent);color:white}
+.btn-ghost{background:transparent;border:2px solid rgba(47,133,90,0.12);color:var(--accent-2)}
+
+/* Form column */
+.panel{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(16,24,40,0.04)}
+form{display:flex;flex-direction:column;gap:12px}
+label{font-size:13px;color:var(--muted);font-weight:600}
+select,input[type="checkbox"],.select-like{padding:10px 12px;border-radius:10px;border:1px solid #e6edf0;background:transparent}
+.row{display:flex;gap:10px}
+.row .col{flex:1}
+.checkbox-row{display:flex;align-items:center;gap:10px}
+
+/* Results */
+.results{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.result-card{background:linear-gradient(180deg,#ffffff,#fbfffb);padding:14px;border-radius:12px;border:1px solid #eef6ee}
+.result-card h3{margin:0 0 6px}
+.meta{font-size:13px;color:var(--muted)}
+.mockup-btn{margin-top:10px}
+
+/* Chatbot */
+.chatbot{position:fixed;right:18px;bottom:18px;width:320px;background:var(--card);border-radius:16px;box-shadow:0 18px 50px rgba(12,24,40,0.12);overflow:hidden}
+.chat-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:linear-gradient(180deg,#f6fff6,#ffffff);border-bottom:1px solid #e6f0e9}
+.chat-body{height:260px;padding:12px;overflow:auto;background:linear-gradient(180deg,#fbfff9,#ffffff)}
+.chat-input{display:flex;padding:10px;border-top:1px solid #eef6ee}
+.chat-input input{flex:1;padding:10px;border-radius:10px;border:1px solid #e6edf0}
+.chat-input button{margin-left:8px}
+.message{padding:8px 10px;border-radius:10px;display:inline-block;max-width:80%}
+.msg-user{text-align:right}
+.msg-user .message{background:linear-gradient(180deg,#e6f7ee,#dff2e6)}
+.msg-bot .message{background:linear-gradient(180deg,#ffffff,#f2faf3);border:1px solid #eef6ee}
+
+footer{margin-top:28px;padding:20px;text-align:center;color:var(--muted);font-size:13px}
+
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(10,12,14,0.4);display:flex;align-items:center;justify-content:center}
+.modal{background:var(--card);border-radius:12px;padding:18px;width:min(680px,95%);box-shadow:0 20px 50px rgba(6,8,10,0.2)}
+
+/* Responsive */
+@media (max-width:880px){
+  .hero{grid-template-columns:1fr;}
+  .chatbot{width:92%;left:4%;right:4%}
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <!-- small leaf logo -->
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 14C4 10 8 6 12 4c0 0 5 3 6 8 1 6-8 10-12 2z" fill="#2f855a"/></svg>
+      <div>Plant2Pack <span style="font-weight:400;color:var(--muted);font-size:13px;margin-left:6px">🌱</span></div>
+    </div>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#how">How it Works</a>
+  <a href="l.html">Login</a> <!-- Link to new login page -->
+</nav>
+  </header>  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Eco-friendly suggestions</span>
+        <h1>Eco-friendly Packaging Starts Here</h1>
+        <p class="lead">Get biodegradable & edible packaging suggestions in seconds — match your product type, moisture level and budget to practical materials.</p><div class="cta">
+      <button class="btn btn-primary" id="findBtn">🌿 Find My Packaging</button>
+      <button class="btn btn-ghost" id="learnBtn">Learn More</button>
+    </div>
+
+    <div style="margin-top:18px;">
+      <strong>Quick tips</strong>
+      <ul style="margin:8px 0 0 18px;color:var(--muted)">
+        <li>Choose low-moisture products for paper/pulp sheets</li>
+        <li>High moisture needs water-resistant coatings</li>
+        <li>Edible options are best for single-use food trays</li>
+      </ul>
+    </div>
+  </div>
+
+  <aside class="panel">
+    <form id="inputForm">
+      <div>
+        <label for="productType">Product Type</label>
+        <select id="productType" required>
+          <option value="">Select product type</option>
+          <option value="food">Food (dry)</option>
+          <option value="wet-food">Food (wet)</option>
+          <option value="electronics">Electronics</option>
+          <option value="cosmetics">Cosmetics</option>
+          <option value="fragile">Fragile / glass</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="moisture">Moisture Level</label>
+          <select id="moisture">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="budget">Budget</label>
+          <select id="budget">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="edible" />
+        <label for="edible">Edible Option?</label>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:8px">
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn" type="button" id="resetBtn">Reset</button>
+      </div>
+
+      <div class="results" id="resultsArea" aria-live="polite" style="margin-top:14px">
+        <!-- Results injected here -->
+        <div class="result-card" id="recommendationCard">
+          <h3>Packaging Type: <span id="packType">—</span></h3>
+          <div class="meta">Carbon Footprint Saved: <strong id="carbon">—</strong></div>
+          <div class="meta">Decomposition Time: <strong id="decomp">—</strong></div>
+          <div class="meta">Nutritional Info: <strong id="nutri">—</strong></div>
+          <button class="btn mockup-btn" id="mockupBtn">🖼 Mockup Preview</button>
+        </div>
+
+        <div class="result-card" style="display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <h3>Why this?</h3>
+            <p class="meta" style="margin-top:6px">We match materials using moisture tolerance, cushioning needs, and your budget — prioritizing compostable and low-CO₂ options.</p>
+          </div>
+          <div style="text-align:right"><small class="meta">Estimates only</small></div>
+        </div>
+      </div>
+    </form>
+  </aside>
+</section>
+
+<section id="learn" style="margin-top:22px">
+  <div style="display:flex;gap:18px;flex-wrap:wrap">
+    <div style="flex:1;min-width:260px;background:var(--card);padding:16px;border-radius:12px;border:1px solid #eef6ee">
+      <h3>Chat with GreenBot</h3>
+      <p class="meta">Ask quick questions about composting, recycling icons, or material swaps.</p>
+    </div>
+    <div style="flex:1;min-width:260px;background:var(--card);padding:16px;border-radius:12px;border:1px solid #eef6ee">
+      <h3>Learn More / Sustainability Tips</h3>
+      <ul style="color:var(--muted);margin-top:6px">
+        <li>Compost at home: keep a 30:1 carbon:nitrogen ratio</li>
+        <li>Rinse and sort before recycling to avoid contamination</li>
+        <li>Prefer reusable jars for cosmetics when possible</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2025 Plant2Pack — <a href="#" style="color:var(--accent-2);text-decoration:none">About</a> · <a href="#" style="color:var(--accent-2);text-decoration:none">Contact</a> · <a href="#" style="color:var(--accent-2);text-decoration:none">GitHub</a> · <a href="#" style="color:var(--accent-2);text-decoration:none">Privacy</a></div>
+</footer>
+
+  </main>  <!-- Chat widget -->  <div class="chatbot" id="chatbot">
+    <div class="chat-header">
+      <div style="display:flex;align-items:center;gap:10px"><strong>GreenBot</strong><small class="meta">AI helper</small></div>
+      <button id="chatClose" style="background:transparent;border:0;cursor:pointer">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg-bot"><div class="message">Hi — I can help you pick packaging or explain composting. Try: "best for wet food"</div></div>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" placeholder="Type your query..." />
+      <button class="btn btn-primary" id="chatSend">Send</button>
+    </div>
+  </div>  <!-- Modal for mockup preview -->  <div id="modalRoot" style="display:none"></div>  <script>
+    // Simple mock recommendation engine
+    const form = document.getElementById('inputForm');
+    const packTypeEl = document.getElementById('packType');
+    const carbonEl = document.getElementById('carbon');
+    const decompEl = document.getElementById('decomp');
+    const nutriEl = document.getElementById('nutri');
+    const mockupBtn = document.getElementById('mockupBtn');
+    const findBtn = document.getElementById('findBtn');
+
+    function estimate(product, moisture, budget, edible){
+      // simple deterministic mapping
+      if(edible && (product.includes('food')||product==='fragile')){
+        return {
+          type:'Corn-starch tray',
+          carbon:'78g CO₂',
+          decomp:'~90 days',
+          nutri:'2g fiber, 15 cal'
+        }
+      }
+      if(product==='electronics'){
+        return {type:'Molded pulp + recycled cardboard',carbon:'120g CO₂',decomp:'~365 days',nutri:'—'}
+      }
+      if(moisture==='high'){
+        return {type:'Wax-coated kraft / PLA-lined box',carbon:'98g CO₂',decomp:'~180 days',nutri:'—'}
+      }
+      if(budget==='low'){
+        return {type:'Recycled paper pulp tray',carbon:'60g CO₂',decomp:'~120 days',nutri:'—'}
+      }
+      return {type:'Bamboo-fiber tray',carbon:'70g CO₂',decomp:'~150 days',nutri: edible? '3g fiber, 18 cal':'—'}
+    }
+
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      const product = document.getElementById('productType').value;
+      const moisture = document.getElementById('moisture').value;
+      const budget = document.getElementById('budget').value;
+      const edible = document.getElementById('edible').checked;
+      if(!product) return alert('Please select a product type');
+      const r = estimate(product,moisture,budget,edible);
+      packTypeEl.textContent = r.type;
+      carbonEl.textContent = r.carbon;
+      decompEl.textContent = r.decomp;
+      nutriEl.textContent = r.nutri;
+      // highlight mockup button briefly
+      mockupBtn.classList.add('btn-primary');
+      setTimeout(()=>mockupBtn.classList.remove('btn-primary'),500);
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', ()=>{
+      form.reset();
+      packTypeEl.textContent='—';carbonEl.textContent='—';decompEl.textContent='—';nutriEl.textContent='—';
+    });
+
+    // Mockup modal
+    mockupBtn.addEventListener('click', ()=>{
+      const modalRoot = document.getElementById('modalRoot');
+      modalRoot.style.display='block';
+      modalRoot.innerHTML = `
+        <div class="modal-backdrop" id="backdrop">
+          <div class="modal">
+            <h3>Mockup Preview</h3>
+            <p class="meta">This is a simple mockup preview of the selected packaging. Use this as a starting point for real mockups.</p>
+            <div style="margin:12px 0;padding:16px;border-radius:8px;border:1px dashed #e6f2ea;background:#fff;display:flex;gap:12px;align-items:center;">
+              <div style="width:120px;height:80px;border-radius:8px;background:linear-gradient(180deg,#f6fff6,#eaf7ee);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent-2)">Mockup</div>
+              <div style="flex:1">
+                <strong id="modalPack">`+ (packTypeEl.textContent || '—') + `</strong>
+                <div class="meta">`+ (carbonEl.textContent || '') + ` • ` + (decompEl.textContent || '') + `</div>
+              </div>
+            </div>
+            <div style="text-align:right;margin-top:8px"><button class="btn" id="closeModal">Close</button></div>
+          </div>
+        </div>
+      `;
+      document.getElementById('backdrop').addEventListener('click', (ev)=>{ if(ev.target.id==='backdrop') closeModal();});
+      document.getElementById('closeModal').addEventListener('click', closeModal);
+      function closeModal(){ modalRoot.style.display='none'; modalRoot.innerHTML=''; }
+    });
+
+    // Quick trigger from big CTA
+    findBtn.addEventListener('click', ()=>{document.getElementById('productType').focus();window.scrollTo({top:0,behavior:'smooth'});});
+
+    // Simple chatbot behaviour (mock)
+    const chatBody = document.getElementById('chatBody');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+    const chatClose = document.getElementById('chatClose');
+
+    chatSend.addEventListener('click', sendChat);
+    chatInput.addEventListener('keyup', e=>{ if(e.key==='Enter') sendChat(); });
+    chatClose.addEventListener('click', ()=>document.getElementById('chatbot').style.display='none');
+
+    function appendMsg(text,from='bot'){
+      const wrapper = document.createElement('div');
+      wrapper.className = from==='user' ? 'msg-user' : 'msg-bot';
+      const msg = document.createElement('div'); msg.className='message'; msg.textContent = text; wrapper.appendChild(msg);
+      chatBody.appendChild(wrapper);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function sendChat(){
+      const val = chatInput.value.trim(); if(!val) return;
+      appendMsg(val,'user'); chatInput.value='';
+      // mock AI reply with simple heuristics
+      setTimeout(()=>{
+        const l = val.toLowerCase();
+        if(l.includes('wet')||l.includes('moist')) appendMsg('For wet products we recommend PLA-lined or wax-coated kraft. Consider inner bio-liners.');
+        else if(l.includes('compost')) appendMsg('Home compost: chop small, keep balance of greens and browns, maintain moisture and turn weekly.');
+        else if(l.includes('edible')) appendMsg('Edible trays (starch, seaweed) work best for dry and semi-dry food. Not recommended for high-fat sauces.');
+        else appendMsg('Good question — try selecting product type in the form and submit for a tailored suggestion.');
+      },600);
+    }
+
+    // small accessibility: focus styles
+    document.addEventListener('keyup', e=>{ if(e.key==='/' ) document.getElementById('chatInput').focus(); });
+  </script></body>
+</html>
