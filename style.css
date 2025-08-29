@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: forestgreen;
+  padding: 30px;
+}
+
+h2 {
+  text-align: center;
+  color: blue;
+}
+
+form {
+  background: lightgreen;
+  padding: 20px;
+  border-radius: 19px;
+  border: 3px solid black;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background: red;
+}
+
+#output {
+  margin-top: 20px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.link-container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.view-link {
+  display: inline-block;
+  background: darkblue;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.view-link:hover {
+  background: orange;
+}

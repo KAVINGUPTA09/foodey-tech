@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+  <form id="myForm">
+    <label>Name:</label>
+    <input placeholder="Enter your name" type="text" id="name" required>
+
+    <label>Email:</label>
+    <input placeholder="Email id verification" type="email" id="email" required>
+
+    <label>Address:</label>
+    <textarea placeholder="Address verification" id="address" required></textarea>
+
+    <label>Phone No:</label>
+    <input placeholder="Enter phone no" type="number" id="phone" required>
+
+    <label>Gender:</label>
+    <select id="gender" required>
+      <option value="">--Options--</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Not want to disclose</option>
+    </select>
+
+    <label>Hobbies:</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" value="Reading"> Reading</label>
+      <label><input type="checkbox" value="Sports"> Sports</label>
+      <label><input type="checkbox" value="Music"> Music</label>
+      <label><input type="checkbox" value="Coding"> Coding</label>
+      <label><input type="checkbox" value="Gaming"> Gaming</label>
+    </div>
+    <button type="submit">Click to Submit</button>
+  </form>
+
+  <!-- ✅ Corrected link -->
+  <div class="link-container">
+    <a href="display.html" class="view-link">View Stored Data</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
